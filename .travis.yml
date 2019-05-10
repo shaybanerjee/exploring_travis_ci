@@ -5,11 +5,12 @@ node_js:
 branches:
   only:
     - master
+    - dev
 
 stages:
   - name: deploy
     # require the branch name to be master and that we are trying to merge into master
-    if: branch = master AND type = push
+    if: (branch = master AND type = push) OR (branch = dev AND type = push)
     
 
 script:
